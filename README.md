@@ -101,6 +101,6 @@ You may choose which Scenarios to run with any given name annotations with putti
 
 Yasin Akpinar -- akpinaryasin1991@gmail.com
 
-Project Link: 
+Project Link: https://github.com/y-akpinar/Haba_Task
 
 <p align="right">(<a href="#top">back to top</a>)</p>

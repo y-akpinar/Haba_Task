@@ -6,8 +6,6 @@ import com.haba.utilities.ConfigurationReader;
 import com.haba.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
 
 public class HomePageStepDefs {
 

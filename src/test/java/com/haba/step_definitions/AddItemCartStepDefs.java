@@ -9,6 +9,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+
 public class AddItemCartStepDefs {
 
     HomePage homePage = new HomePage();
@@ -32,17 +33,17 @@ public class AddItemCartStepDefs {
     @And("the user add a product {string} to the cart")
     public void theUserAddAProductToTheCart(String productNumber) {
         productLocaterGenerator.navigateProductPage(productNumber);
-        productLocaterGenerator.addNameToList(productPage.getProductName()); // get current price of product and add the List
+        productLocaterGenerator.addNameToList(productPage.getProductName()); // get current name of product and add the List
         productPage.addChartBtn.click();
+
     }
 
 
     @Then("verify that the user can see the added product {string} in the cart")
     public void verifyThatTheUserCanSeeTheAddedProductInTheCart(String idNummer) {
-        Assert.assertTrue(cartPage.getProductIdNumber().contains(idNummer));
+        Assert.assertEquals(idNummer,cartPage.getProductIdNumber());
         Assert.assertEquals(productLocaterGenerator.nameList.get(0), cartPage.getProductName());
         productLocaterGenerator.nameList.clear();
-
     }
 
     @When("the user change quantity of product with {string}")
@@ -51,11 +52,10 @@ public class AddItemCartStepDefs {
         cartPage.changeQuantity(quantity);
     }
 
-
-    @Then("verify that quantity of item has been updated")
-    public void verifyThatQuantityOfItemHasBeenUpdated() {
+    @Then("verify that quantity of item has been updated and the system displayed {string}")
+    public void verifyThatQuantityOfItemHasBeenUpdatedAndTheSystemDisplayed(String updateMessage) {
         Assert.assertTrue(cartPage.cartMessages.isDisplayed());
-        Assert.assertTrue(cartPage.getCartMessages().contains("Product quantity has been updated."));
+        Assert.assertEquals(updateMessage,cartPage.getCartMessages());
         Assert.assertEquals(expectedQuantity,cartPage.getDropdownSelectedNumber());
     }
 }

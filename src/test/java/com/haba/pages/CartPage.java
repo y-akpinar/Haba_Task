@@ -38,7 +38,7 @@ public class CartPage extends BasePage {
      * @return
      */
     public String getProductIdNumber(){
-        return productItemNumber.getText();
+        return productItemNumber.getText().substring(9);
     }
 
     /**
@@ -64,6 +64,6 @@ public class CartPage extends BasePage {
     }
 
     public String getCartMessages(){
-        return cartMessages.getText();
+        return cartMessages.getText().substring(1).trim();
     }
 }

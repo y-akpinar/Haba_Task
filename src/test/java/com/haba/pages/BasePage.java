@@ -7,8 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.List;
-
 public abstract class  BasePage {
 
     public BasePage() { PageFactory.initElements(Driver.get(), this); }
@@ -37,7 +35,6 @@ public abstract class  BasePage {
             //BrowserUtils.scrollToElement(Driver.get().findElement(By.xpath(moduleLocator)));
             Driver.get().findElement(By.xpath(moduleLocator)).click();
         } catch (Exception e) {
-//            BrowserUtils.waitForStaleElement(Driver.get().findElement(By.xpath(moduleLocator)));
             BrowserUtils.clickWithTimeOut(Driver.get().findElement(By.xpath(moduleLocator)),  5);
         }
 

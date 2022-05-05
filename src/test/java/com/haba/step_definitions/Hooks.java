@@ -1,6 +1,5 @@
 package com.haba.step_definitions;
 
-import com.haba.utilities.ConfigurationReader;
 import com.haba.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -14,11 +13,8 @@ public class Hooks {
 
     @Before
     public void setUp(){
-
         Driver.get().manage().window().maximize();
         Driver.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-
     }
 
     @After
@@ -27,8 +23,6 @@ public class Hooks {
             final byte[] screenshot = ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot,"image/png","screenshot");
         }
-
        Driver.closeDriver();
-
     }
 }

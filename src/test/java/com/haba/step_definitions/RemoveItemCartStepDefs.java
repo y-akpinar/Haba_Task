@@ -14,9 +14,10 @@ public class RemoveItemCartStepDefs {
         cartPage.removeItemIcon.click();
     }
 
-    @Then("verify that item has been removed")
-    public void verifyThatItemHasBeenRemoved() {
+
+    @Then("verify that item has been removed and the system displayed {string}")
+    public void verifyThatItemHasBeenRemovedAndTheSystemDisplayed(String removeMessage) {
         Assert.assertTrue(cartPage.cartMessages.isDisplayed());
-        Assert.assertTrue(cartPage.getCartMessages().contains("Product has been removed from your cart."));
+        Assert.assertEquals(removeMessage,cartPage.getCartMessages());
     }
 }
